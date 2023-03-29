@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    environment {
+        KUBECONFIG = credentials('kubeconfig')
+    }
+    stages {
+        stage('Deploy') {
+            steps {
+                sh 'kubectl apply -f myapp-deployment.yaml'
+            }
+        }
+    }
+}
