@@ -1,0 +1,5 @@
+Assuming that the REST API is working correctly, the output of a GET request to the /servers endpoint with no parameters should return a JSON array containing all the server objects stored in the MongoDB database. A GET request to the /servers/{id} endpoint with a valid server ID parameter should return a single server object, while a GET request to the same endpoint with an invalid server ID parameter should return a 404 error response.
+
+A PUT request to the /servers endpoint with a valid server object as the request body should create a new server object and store it in the MongoDB database. A DELETE request to the /servers/{id} endpoint with a valid server ID parameter should delete the corresponding server object from the MongoDB database.
+
+Finally, a GET request to the /servers?name={name} endpoint with a valid name parameter should return a JSON array containing all the server objects whose name contains the specified name parameter. A GET request to the same endpoint with an invalid name parameter should return a 404 error response.
