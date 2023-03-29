@@ -1,0 +1,75 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Server API
+paths:
+  /servers:
+    get:
+      summary: Get all servers
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Create a new server
+      parameters:
+        - in: body
+          name: server
+          required: true
+          schema:
+            $ref: '#/definitions/Server'
+      responses:
+        200:
+          description: OK
+  /servers/{id}:
+    get:
+      summary: Get a server by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+    delete:
+      summary: Delete a server by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+  /servers/search:
+    get:
+      summary: Search for servers by name
+      parameters:
+        - in: query
+          name: name
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+definitions:
+  Server:
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: string
+      language:
+        type: string
+      framework:
+        type: string
+    required:
+      - name
+      - id
